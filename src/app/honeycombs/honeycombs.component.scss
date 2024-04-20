@@ -1,0 +1,45 @@
+.honeycomb-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 280px; /* Adjust based on your layout needs */
+  margin: 50px auto;
+  position: relative;
+  height: 12vw;
+}
+
+.hive-cell {
+  width: 60px;
+  height: 52px; /* Adjusted for proper SVG scaling */
+  margin: 1px;
+  cursor: pointer; /* Optional: Adds interactivity */
+  position: absolute;
+}
+
+.cell-fill {
+  fill: #e6e6e6; /* Default fill color for surrounding cells */
+}
+
+.center-honeycomb .cell-fill {
+  fill: #fdd835; /* Distinct yellow for the center honeycomb */
+}
+
+.cell-letter {
+  font-size: 30px; /* Adjust font size as necessary */
+  font-weight: bold; /* Bold font weight */
+  font-family: 'Arial', sans-serif; /* Specifying a font family */
+  text-anchor: middle; /* Ensures text is centered horizontally */
+  alignment-baseline: middle; /* Ensures text is centered vertically */
+  fill: #333; /* Text color */
+  text-transform: uppercase;
+}
+
+/* Offset calculations for hexagonal grid formation */
+.hive-cell:nth-child(1) { top: 30px; left: 0;}
+.hive-cell:nth-child(2) { top: 0; left: 52px; }
+.hive-cell:nth-child(3) { top: 30px; left: 104px; }
+.hive-cell:nth-child(4) { top: 56px; left: 52px; }
+.hive-cell:nth-child(5) { top: 85px; left: 0; }
+.hive-cell:nth-child(6) { top: 112px; left: 52px; }
+.hive-cell:nth-child(7) { top: 85px; left: 105px; }

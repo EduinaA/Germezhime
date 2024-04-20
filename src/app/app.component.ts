@@ -1,13 +1,24 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import {HoneycombsModule} from "./honeycombs/honeycombs.module";
+import {WordInputModule} from "./word-input/word-input.module";
+import {ValidWordsDisplayModule} from "./valid-words-display/valid-words-display.module";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, HoneycombsModule, WordInputModule, ValidWordsDisplayModule],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'spelling-bee-game';
+  currentLetters: string[] = [];
+  letters: string[] = ['a', 'u', 'p', 'd', 'e', 'k', 'j'];
+  validWords: string[] = [];
+
+  constructor() { }
+
+  addValidWord(word: string): void {
+    this.validWords.push(word);
+  }
 }

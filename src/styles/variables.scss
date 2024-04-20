@@ -1,0 +1,18 @@
+// styles/variables.scss
+$altitude-ratio: 1.73205080757; // sqrt(3)
+$totalWidth: 290px;
+$hive-padding-ratio: ((3 * $altitude-ratio) * 0.2) * 100%;
+$shuffleTransitionTime: 0.3s; // Transition time
+$gray5: #e6e6e6; // Background color for cells
+$spelling-bee-gold: #fdd835; // Gold color for center cell
+
+@mixin hive-cell($fill) {
+  .cell-fill {
+    cursor: pointer;
+    fill: $fill;
+    transition: all 100ms;
+    &.push-active {
+      fill: darken($fill, 5%);
+    }
+  }
+}

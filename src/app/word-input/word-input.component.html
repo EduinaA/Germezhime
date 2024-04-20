@@ -1,0 +1,8 @@
+<!-- src/app/word-input/word-input.component.html -->
+<div class="input-container">
+  <input type="text"
+         [(ngModel)]="currentWord"
+         placeholder="Vendos fjalën babik"
+         (keyup.enter)="submitWord()" autofocus>
+  <button (click)="submitWord()">Jepi!</button>
+</div>
