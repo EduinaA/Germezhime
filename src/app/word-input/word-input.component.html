@@ -1,4 +1,5 @@
 <!-- src/app/word-input/word-input.component.html -->
+<app-error-message [message]="errorMessage"></app-error-message>
 <div class="input-container">
   <input type="text"
          [(ngModel)]="currentWord"
@@ -6,3 +7,5 @@
          (keyup.enter)="submitWord()" autofocus>
   <button (click)="submitWord()">Jepi!</button>
 </div>
+
+<button (click)="printAllValidWords()">Fjalet e vlefshme</button>

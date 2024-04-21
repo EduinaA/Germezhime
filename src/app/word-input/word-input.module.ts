@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms'; // Import FormsModule if you use ngModel
 import { WordInputComponent } from './word-input.component';
 import { HttpClientModule } from '@angular/common/http';
+import {ErrorMessageComponent} from "../error-message/error-message.component";
+import {ErrorMessageModule} from "../error-message/error-message.module";
 
 @NgModule({
   declarations: [
@@ -11,7 +13,8 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     CommonModule,  // CommonModule includes basic Angular directives like NgIf and NgFor
     FormsModule,   // FormsModule is necessary for using ngModel
-    HttpClientModule
+    HttpClientModule,
+    ErrorMessageModule
   ],
   exports: [
     WordInputComponent  // Export the WordInputComponent so it can be used in other modules
