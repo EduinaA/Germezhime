@@ -14,7 +14,7 @@ import {ErrorMessageModule} from "./error-message/error-message.module";
 })
 export class AppComponent {
   currentLetters: string[] = [];
-  letters: string[] = ['b', 'o', 'n', 'a', 'h', 'e', 'j'];
+  letters: string[] = ['r', 'i', 'm', 'e', 'h', 'k', 'o'];
   validWords: string[] = [];
 
   constructor() { }
