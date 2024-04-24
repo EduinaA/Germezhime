@@ -1,16 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HoneycombsComponent } from './honeycombs.component';
+import {SingleHiveModule} from "../single-hive/single-hive.module";
 
 @NgModule({
   declarations: [
-    HoneycombsComponent  // Declare the HoneycombsComponent
+    HoneycombsComponent
   ],
   imports: [
-    CommonModule  // Import CommonModule for basic Angular directives
+    CommonModule,
+    SingleHiveModule
   ],
   exports: [
-    HoneycombsComponent  // Export HoneycombsComponent so it can be used in other modules
+    HoneycombsComponent
   ]
 })
 export class HoneycombsModule { }

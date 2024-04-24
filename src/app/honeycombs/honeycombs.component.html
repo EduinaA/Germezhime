@@ -1,11 +1,5 @@
 <div class="honeycomb-list">
-  <svg *ngFor="let letter of letters; let i = index" [ngClass]="{'center-honeycomb': i === 3}"
-       class="hive-cell" viewBox="0 0 120 103.923" [attr.data-testid]="'hive-cell-outer-' + i">
-    <polygon class="cell-fill"
-             points="0,51.961 30,0 90,0 120,51.961 90,103.923 30,103.923"
-             stroke="white" stroke-width="3" [attr.data-testid]="'cell-fill-' + i"></polygon>
-    <text class="cell-letter" x="50%" y="50%" dy="0.35em" [attr.data-testid]="'cell-letter-' + i">
-      {{ letter }}
-    </text>
-  </svg>
+  <app-single-hive
+    *ngFor="let letter of letters"
+    [letters]="letters"></app-single-hive>
 </div>

@@ -6,10 +6,9 @@ import { Component, Input, OnChanges } from '@angular/core';
   styleUrls: ['./honeycombs.component.scss']
 })
 export class HoneycombsComponent implements OnChanges {
-  @Input() letters: string[] = []; // Accepts letters from parent component
+  @Input() letters: string[] = [];
 
   ngOnChanges(): void {
     console.log('Letters updated in Honeycombs:', this.letters);
-    // Additional logic to handle letter changes can be added here
   }
 }
