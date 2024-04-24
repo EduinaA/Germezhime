@@ -1,1 +1,21 @@
-<p>scoreboard works!</p>
+<div class="sb-wordlist-box">
+  <div class="sb-wordlist-heading">
+    <div class="sb-wordlist-heading-wrap">
+      <div class="sb-wordlist-summary">
+        Keni gjetur {{ validWords.length }} fjalë
+      </div>
+    </div>
+  </div>
+  <div class="sb-wordlist-drawer">
+    <div class="sb-wordlist-window">
+      <ul class="sb-wordlist-items-pag">
+        <li *ngFor="let word of validWords">
+          <span
+            [ngClass]="word.isPangram ? 'sb-pangram' : 'sb-anagram'">
+            {{ word.word }}
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

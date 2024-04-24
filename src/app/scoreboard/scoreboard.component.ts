@@ -1,12 +1,10 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-scoreboard',
-  standalone: true,
-  imports: [],
   templateUrl: './scoreboard.component.html',
-  styleUrl: './scoreboard.component.css'
+  styleUrls: ['./scoreboard.component.scss']
 })
 export class ScoreboardComponent {
-
+  @Input() validWords: { word: string, isPangram: boolean }[] = [];
 }

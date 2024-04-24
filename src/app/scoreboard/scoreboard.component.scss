@@ -1,0 +1,157 @@
+@import 'variables.scss';
+
+/* Component specific styles */
+.sb-wordlist-box {
+  display: flex;
+  flex-direction: column;
+  border-radius: 6px;
+  border: 1px solid #dcdcdc;
+  overflow: hidden;
+  letter-spacing: 0.005em;
+}
+
+.sb-wordlist-summary,
+.sb-recent-words-wrap {
+  padding: 0 20px;
+  position: relative;
+  transition: all 270ms ease;
+}
+
+.sb-wordlist-summary {
+  display: flex;
+  align-items: center;
+  font-size: 1em;
+}
+
+.sb-wordlist-heading {
+  cursor: pointer;
+  height: 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.sb-wordlist-drawer {
+  overflow: hidden;
+  transition: max-height 200ms ease;
+  max-height: none;
+}
+
+.sb-expanded .sb-wordlist-drawer {
+  max-height: $small-device-max-height; /* Adjust based on your variable definitions */
+}
+
+.sb-wordlist-window {
+  position: relative;
+  overflow: hidden;
+  height: $small-device-height; /* Adjust based on your variable definitions */
+  max-height: none !important;
+}
+
+.sb-wordlist-pag {
+  display: flex;
+  flex-direction: column;
+}
+
+.sb-wordlist-items-pag {
+  width: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  align-content: flex-start;
+  height: calc(100% - 38px);
+  padding: 0 0 20px;
+  min-width: 400px;
+
+  > li {
+    margin-right: 5px;
+    padding: 4px 0 4px 1px;
+    margin-bottom: 7px;
+    border-bottom: 1px solid #dcdcdc;
+    width: calc(30% - 20px);
+  }
+}
+.sb-pangram {
+  color: #fdd835;
+  text-transform: capitalize;
+  font-weight: 500;
+  font-size: 14px;
+}
+.sb-anagram {
+  display: block;
+  text-transform: capitalize;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.sb-toggle-expand {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.sb-toggle-icon {
+  /* Add appropriate styling for toggle icon here */
+}
+
+
+.sb-wordlist-summary,
+.sb-recent-words-wrap {
+  padding: 0 4px;
+  position: relative;
+  transition: all 270ms ease;
+}
+
+/* Responsive and Device-Specific Adjustments */
+@include view-width-min(md) {
+  .sb-wordlist-box, .sb-wordlist-drawer {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sb-expanded .sb-wordlist-drawer {
+    max-height: $large-device-max-height;
+  }
+
+  .sb-wordlist-window {
+    overflow-x: auto;
+    height: $large-device-height;
+  }
+}
+
+@include view-device(mobile) {
+  .sb-wordlist-box {
+    margin: 0 auto; /* Centering in mobile view */
+  }
+}
+
+@include view-device(desktop) {
+  .sb-wordlist-window {
+    height: $desktop-height;
+  }
+}
+
+/* Further customization for different platform appearances */
+.pz-mobile:not(.pz-play-tab) {
+  height: calc(var(--vh, 1vh) * 100); /* Custom viewport height handling */
+}
+
+.pz-play-tab.game-moment {
+  height: calc(var(--vh, 1vh) * 100); /* Adjusted for play tab specific moments */
+}
+
+.pz-mobile {
+  overflow-y: hidden;
+}
+
+.pz-mobile.enable-scrolling {
+  overflow-y: auto;
+}
+
+.pz-games-app .sb-content-box {
+  font-family: 'nyt-franklin', sans-serif;
+}
+
+/* Kebob and other UI elements */
+.sb-kebob {
+  /* Style for kebob menu, typically the three-dot vertical menu */
+}

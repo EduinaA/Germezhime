@@ -2,4 +2,7 @@
   <app-word-input [letters]="letters" (validWord)="addValidWord($event)"></app-word-input>
   <app-honeycombs [letters]="letters"></app-honeycombs>
 </div>
-<app-valid-words-display [validWords]="validWords"></app-valid-words-display>
+<!--<app-valid-words-display [validWords]="validWords"></app-valid-words-display>-->
+<app-scoreboard
+  [validWords]="validWords"
+></app-scoreboard>

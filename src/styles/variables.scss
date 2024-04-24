@@ -16,3 +16,97 @@ $spelling-bee-gold: #fdd835; // Gold color for center cell
     }
   }
 }
+/* ------------------ */
+/* START LAYOUT       */
+/* ------------------ */
+
+$small-device-max-height: calc(var(--vh, 1vh) * 68);
+$small-device-height: calc(var(--vh, 1vh) * 68);
+$large-device-height: calc(var(--vh, 1vh) * 75);
+$large-device-max-height: calc(var(--vh, 1vh) * 75);
+$desktop-height: calc(var(--vh, 1vh) * 64);
+
+/* ------------------ */
+
+// Define breakpoints
+$breakpoints: (
+  xs: 480px,  // Extra small devices (portrait phones)
+  sm: 768px,  // Small devices (tablets)
+  md: 992px,  // Medium devices (desktops)
+  lg: 1200px, // Large devices (large desktops)
+  xl: 1400px  // Extra large devices (wider desktops)
+);
+
+// Mixin to apply styles for minimum widths
+@mixin view-width-min($size) {
+  @if map-has-key($breakpoints, $size) {
+    @media (min-width: map-get($breakpoints, $size)) {
+      @content;
+    }
+  } @else {
+    @warn "The breakpoint `#{$size}` is not defined in the `$breakpoints` map.";
+  }
+}
+
+// Usage Example:
+@include view-width-min(md) {
+  .some-class {
+    width: 75%;
+  }
+}
+
+@include view-width-min(xs) {
+  .some-class {
+    background-color: lightblue;
+  }
+}
+
+// Define device-based breakpoints
+$device-breakpoints: (
+  mobile: 480px,   // Mobile devices, up to 480px
+  tablet: 768px,   // Tablets, up to 768px
+  desktop: 1024px  // Desktops, from 1024px and above
+);
+
+// Mixin for device-specific styles
+@mixin view-device($type) {
+  @if $type == 'desktop' {
+    @media (min-width: map-get($device-breakpoints, 'desktop')) {
+      @content;
+    }
+  } @elseif $type == 'tablet' {
+    @media (min-width: map-get($device-breakpoints, 'tablet')) and (max-width: map-get($device-breakpoints, 'desktop') - 1px) {
+      @content;
+    }
+  } @elseif $type == 'mobile' {
+    @media (max-width: map-get($device-breakpoints, 'tablet') - 1px) {
+      @content;
+    }
+  } @else {
+    @warn "Unknown device type `#{$type}`.";
+  }
+}
+
+// Usage Example for Desktop
+@include view-device(desktop) {
+  .desktop-specific {
+    background-color: lightgreen;
+    padding: 20px;
+  }
+}
+
+// Usage Example for Tablet
+@include view-device(tablet) {
+  .tablet-specific {
+    background-color: lightblue;
+    padding: 15px;
+  }
+}
+
+// Usage Example for Mobile
+@include view-device(mobile) {
+  .mobile-specific {
+    background-color: pink;
+    padding: 10px;
+  }
+}
