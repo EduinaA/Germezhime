@@ -25,9 +25,10 @@
 
 .sb-wordlist-heading {
   cursor: pointer;
-  height: 60px;
+  height: 30px;
   position: relative;
   overflow: hidden;
+  padding: 10px;
 }
 
 .sb-wordlist-drawer {
@@ -57,29 +58,27 @@
   display: flex;
   flex-flow: column wrap;
   align-content: flex-start;
-  height: calc(100% - 38px);
-  padding: 0 0 20px;
+  height: calc(100%);
+  padding: 10px;
   min-width: 400px;
 
   > li {
-    margin-right: 5px;
+    margin-right: 15px;
     padding: 4px 0 4px 1px;
     margin-bottom: 7px;
     border-bottom: 1px solid #dcdcdc;
     width: calc(30% - 20px);
   }
 }
-.sb-pangram {
-  color: #fdd835;
-  text-transform: capitalize;
-  font-weight: 500;
-  font-size: 14px;
-}
 .sb-anagram {
   display: block;
   text-transform: capitalize;
   font-size: 14px;
   font-weight: 500;
+
+  &.pangram {
+    color: #fdd835;
+  }
 }
 
 .sb-toggle-expand {
@@ -154,4 +153,10 @@
 /* Kebob and other UI elements */
 .sb-kebob {
   /* Style for kebob menu, typically the three-dot vertical menu */
+}
+
+@media (max-width: 768px) {
+  .sb-wordlist-items-pag {
+    min-width: auto;
+  }
 }

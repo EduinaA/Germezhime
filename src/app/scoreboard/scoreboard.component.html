@@ -11,7 +11,7 @@
       <ul class="sb-wordlist-items-pag">
         <li *ngFor="let word of validWords">
           <span
-            [ngClass]="word.isPangram ? 'sb-pangram' : 'sb-anagram'">
+            [ngClass]="word.isPangram ? 'sb-anagram pangram' : 'sb-anagram'">
             {{ word.word }}
           </span>
         </li>

@@ -9,6 +9,5 @@ export class HoneycombsComponent implements OnChanges {
   @Input() letters: string[] = [];
 
   ngOnChanges(): void {
-    console.log('Letters updated in Honeycombs:', this.letters);
   }
 }

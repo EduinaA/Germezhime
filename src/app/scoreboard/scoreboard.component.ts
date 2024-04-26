@@ -1,4 +1,5 @@
-import {Component, Input} from '@angular/core';
+import { Component } from '@angular/core';
+import { ValidWordsService } from '../valid-words.service';
 
 @Component({
   selector: 'app-scoreboard',
@@ -6,5 +7,14 @@ import {Component, Input} from '@angular/core';
   styleUrls: ['./scoreboard.component.scss']
 })
 export class ScoreboardComponent {
-  @Input() validWords: { word: string, isPangram: boolean }[] = [];
+  public validWords: { word: string, isPangram: boolean }[] = [];
+
+  constructor(
+    private validWordsServiceService: ValidWordsService
+  ) {
+    //subscribe to the validWordsSubject
+    this.validWordsServiceService.validWordsSubject.subscribe(words => {
+      this.validWords = words;
+    });
+  }
 }

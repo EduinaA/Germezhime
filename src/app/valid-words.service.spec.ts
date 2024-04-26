@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { WordValidatorService } from './word-validator.service';
+import { ValidWordsService } from './valid-words.service';
 
-describe('WordValidatorService', () => {
-  let service: WordValidatorService;
+describe('ValidWordsService', () => {
+  let service: ValidWordsService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(WordValidatorService);
+    service = TestBed.inject(ValidWordsService);
   });
 
   it('should be created', () => {
