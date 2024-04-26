@@ -1,5 +1,4 @@
 import {Component, Input} from '@angular/core';
-import {NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-error-message',
@@ -7,5 +6,5 @@ import {NgIf} from "@angular/common";
   styleUrl: './error-message.component.scss'
 })
 export class ErrorMessageComponent {
-  @Input() message: string = ''; // The error message text
+  @Input() message: string = '';
 }

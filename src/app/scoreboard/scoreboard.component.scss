@@ -1,5 +1,11 @@
 @import 'variables.scss';
 
+$dot-size: 9px;
+$marker-size: 1.875em;
+$progress-transition-time: 200ms;
+$progress-transition: left $progress-transition-time ease;
+$gray4: #dcdcdc;
+
 /* Component specific styles */
 .sb-wordlist-box {
   display: flex;
@@ -154,6 +160,120 @@
 .sb-kebob {
   /* Style for kebob menu, typically the three-dot vertical menu */
 }
+
+// Progress bar styles
+$dot-size: 9px;
+$marker-size: 1.875em;
+$progress-transition-time: 200ms;
+$progress-transition: left $progress-transition-time ease;
+
+.sb-progress {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  cursor: pointer;
+  padding-right: 12px;
+}
+
+@include view-width-min(md) {
+  .sb-progress {
+    padding: 6px 12px 6px 0;
+  }
+}
+
+.sb-progress-bar {
+  $margin-left: 12px;
+  margin-left: $margin-left;
+  flex-grow: 1;
+  position: relative;
+  // will wrap onto second row only if sb-progress-rank's width is > 85px i.e. if 1em > 17px (adjustable in a11y settings)
+  min-width: calc(100% - #{$margin-left} - 85px);
+  display: flex;
+  align-items: center;
+}
+
+.sb-progress-rank {
+  min-width: 5em;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+}
+
+.sb-progress-bar,
+.sb-progress-rank {
+  height: $marker-size;
+}
+
+.sb-progress-line {
+  position: relative;
+  height: 1px;
+  background: $gray4;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.sb-progress-marker {
+  width: $marker-size;
+  height: $marker-size;
+  position: absolute;
+  left: 0%;
+  transition: left 200ms ease;
+  transform: translate(-50%, 0);
+
+  .sb-progress-value {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    background: $spelling-bee-gold;
+    font-size: 0.75em;
+    font-weight: 500;
+    letter-spacing: -0.03125em; // to give a bit more room in circle
+  }
+
+  &.final .sb-progress-value {
+    border-radius: 0%;
+  }
+}
+
+.sb-progress-dots {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.sb-progress-dot {
+  display: block;
+  width: 0;
+  position: relative;
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: -$dot-size * 0.5;
+    top: -$dot-size * 0.5;
+    width: $dot-size;
+    height: $dot-size;
+    border-radius: 50%;
+    background-color: $gray4;
+    transition: background-color $progress-transition-time
+      ($progress-transition-time - 100ms) ease;
+  }
+
+  &:last-child::after {
+    border-radius: 0%;
+  }
+
+  &.completed::after {
+    background-color: $spelling-bee-gold;
+  }
+}
+
 
 @media (max-width: 768px) {
   .sb-wordlist-items-pag {

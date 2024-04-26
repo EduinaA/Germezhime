@@ -10,13 +10,16 @@ export class ValidWordsService {
   private readonly validWordsStorageKey = 'validWords';
   private readonly currentLettersStorageKey = 'currentLetters';
   // Daily update of letters
-  public letters: string[] = ['k', 'e', 'a', 'i', 'p', 'n', 'l'];
+  public readonly letters: string[] = ['k', 'e', 'a', 'i', 'p', 'n', 'l'];
 
   // The set of words that are available from the given letters
   public allValidWordsSet: Set<string> = new Set();
 
   // The list of valid words that are found from the user
   public validWordsSubject = new BehaviorSubject<{word: string, isPangram: boolean}[]>([]);
+
+  // A behavior subject to hold the score of the game
+  public scoreSubject = new BehaviorSubject<number>(0);
 
   constructor(
     private http: HttpClient,
@@ -25,6 +28,9 @@ export class ValidWordsService {
     this.loadWordList();
     if (isPlatformBrowser(this.platformId)) {
       this.validWordsSubject = new BehaviorSubject<{word: string, isPangram: boolean}[]>(this.loadWordsFromLocalStorage());
+      this.validWordsSubject.value.forEach(word => {(
+        this.scoreSubject.next(this.scoreSubject.value + this.score(word.word))
+      )});
       this.validWordsSubject.subscribe(words => {
         localStorage.setItem(this.validWordsStorageKey, JSON.stringify(words));
       });
@@ -53,6 +59,7 @@ export class ValidWordsService {
         const allWords = data.split('\n').map(word => word.trim().toLowerCase()).filter(word => word);
         const wordSet = new Set(allWords);
         const allPangrams = allWords.filter(word => word.length === 7 && new Set(word).size === 7);
+        //console.log(allPangrams);
         this.createAllValidWordsSet(wordSet);
       });
   }
@@ -72,10 +79,19 @@ export class ValidWordsService {
 
   // Check if a valid word is a pangram.
   private isPangram(word: string): boolean {
-    const sortedLettersString = this.letters.sort().join('');
+    const sortedLettersString = [...this.letters].sort().join('');
     const sortedWord = Array.from(word).sort().join('');
-
     return sortedWord === sortedLettersString;
+  }
+
+  private score(word: string): number {
+    if(word.length === 4) {
+      return 1;
+    }
+    if(this.isPangram(word)) {
+      return 14;
+    } else
+    return word.length;
   }
 
   public addWord(word: string): void {
@@ -90,6 +106,7 @@ export class ValidWordsService {
         const updatedWords = [...currentWords, { word, isPangram }];
         updatedWords.sort((a, b) => a.word.localeCompare(b.word));
         this.validWordsSubject.next(updatedWords);
+        this.scoreSubject.next(this.scoreSubject.value + this.score(word));
       } else {
         console.log(`Duplicate word not added: ${word}`);
       }

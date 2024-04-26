@@ -8,14 +8,12 @@ import {ValidWordsService} from "../valid-words.service";
 })
 export class WordInputComponent {
   public currentWord: string = '';
-
-  errorMessage: string = '';
+  public errorMessage: string = '';
 
   constructor(private validWordsService: ValidWordsService) {
   }
 
   public submitWord(): void {
-    console.log('Submitting wordInput:', this.currentWord);
     if(this.currentWord) {
       this.validWordsService.addWord(this.currentWord);
       this.currentWord = '';

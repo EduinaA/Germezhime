@@ -1,3 +1,30 @@
+<div class="sb-progress-box">
+  <span role="presentation">
+    <div class="sb-progress" data-testid="sb-progress" title="Click to see today’s ranks">
+      <h4 class="sb-progress-rank" data-testid="sb-progress-rank">
+        {{ scoreName }}</h4>
+      <div class="sb-progress-bar"><div class="sb-progress-line">
+        <div class="sb-progress-dots">
+          <!-- add class "completed" if the min score is reached -->
+          <span class="sb-progress-dot completed"></span>
+          <span class="sb-progress-dot"></span>
+          <span class="sb-progress-dot"></span>
+          <span class="sb-progress-dot"></span>
+          <span class="sb-progress-dot"></span>
+          <span class="sb-progress-dot"></span>
+          <span class="sb-progress-dot"></span>
+          <span class="sb-progress-dot"></span>
+          <span class="sb-progress-dot"></span>
+        </div>
+      </div>
+        <div class="sb-progress-marker" style="left: 12.5%;">
+          <span class="sb-progress-value">{{ score }}</span>
+        </div>
+      </div>
+    </div>
+  </span>
+</div>
+
 <div class="sb-wordlist-box">
   <div class="sb-wordlist-heading">
     <div class="sb-wordlist-heading-wrap">
