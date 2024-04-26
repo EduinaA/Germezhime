@@ -20,7 +20,7 @@ export class ScoreboardComponent {
   ];
   public validWords: { word: string, isPangram: boolean }[] = [];
   public score: number = 0;
-  public scoreName: string = this.scoreLevels.find(level => level.minScore <= this.score)?.name || 'Fillestar';
+  public scoreName: string = '';
 
   constructor(
     private validWordsServiceService: ValidWordsService
@@ -33,6 +33,10 @@ export class ScoreboardComponent {
     // subscribe to the scoreSubject
     this.validWordsServiceService.scoreSubject.subscribe(score => {
       this.score = score;
+      this.scoreName = this.getScoreName();
     });
+  }
+  public getScoreName(): string {
+    return this.scoreLevels.find(level => level.minScore >= this.score)?.name || 'Fillestar';
   }
 }
