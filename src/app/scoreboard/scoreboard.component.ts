@@ -8,15 +8,15 @@ import { ValidWordsService } from '../valid-words.service';
 })
 export class ScoreboardComponent {
   public scoreLevels: { name: string, minScore: number }[] = [
-    { name: 'Fillestar', minScore: 0 },
-    { name: 'Fillim i ri!', minScore: 5 },
-    { name: 'Ecim...', minScore: 13 },
-    { name: 'Mirë', minScore: 20 },
-    { name: 'Decent', minScore: 38 },
-    { name: 'Najs', minScore: 63 },
-    { name: 'Bravo', minScore: 101 },
-    { name: 'Jashtëzakoshëm', minScore: 127 },
-    { name: 'Gjeni!', minScore: 177 }
+    { name: 'Vezë', minScore: 0 },
+    { name: 'Larvë', minScore: 5 },
+    { name: 'Bletë', minScore: 13 },
+    { name: 'Bletë punëtore', minScore: 20 },
+    { name: 'Bletë e zgjuar', minScore: 38 },
+    { name: 'Bletë mendjendritur', minScore: 63 },
+    { name: 'Të lumtë thumbi!', minScore: 101 },
+    { name: 'Mbretëreshë', minScore: 127 },
+    { name: 'Bletar', minScore: 177 }
   ];
   public validWords: { word: string, isPangram: boolean }[] = [];
   public score: number = 0;
