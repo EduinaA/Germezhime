@@ -1,23 +1,18 @@
 <div class="sb-progress-box">
   <span role="presentation">
-    <div class="sb-progress" data-testid="sb-progress" title="Click to see today’s ranks">
-      <h4 class="sb-progress-rank" data-testid="sb-progress-rank">
-        {{ scoreName }}</h4>
-      <div class="sb-progress-bar"><div class="sb-progress-line">
-        <div class="sb-progress-dots">
-          <!-- add class "completed" if the min score is reached -->
-          <span class="sb-progress-dot completed"></span>
-          <span class="sb-progress-dot"></span>
-          <span class="sb-progress-dot"></span>
-          <span class="sb-progress-dot"></span>
-          <span class="sb-progress-dot"></span>
-          <span class="sb-progress-dot"></span>
-          <span class="sb-progress-dot"></span>
-          <span class="sb-progress-dot"></span>
-          <span class="sb-progress-dot"></span>
-        </div>
+    <div class="sb-progress" data-testid="sb-progress">
+      <div class="sb-progress-title">
+        <h4 class="sb-progress-rank" data-testid="sb-progress-rank">{{ scoreName }}</h4>
       </div>
-        <div class="sb-progress-marker" style="left: 12.5%;">
+      <div class="sb-progress-bar">
+        <div class="sb-progress-line">
+          <!-- Each dot represents a score level -->
+          <div *ngFor="let level of scoreLevels" class="sb-progress-dots">
+            <span [ngClass]="{'completed': score >= level.minScore}" class="sb-progress-dot"></span>
+          </div>
+        </div>
+        <!-- Dynamic marker positioning -->
+        <div class="sb-progress-marker" [style.left]="calculateMarkerPosition(score) + '%'">
           <span class="sb-progress-value">{{ score }}</span>
         </div>
       </div>

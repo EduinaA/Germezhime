@@ -78,7 +78,7 @@ $gray4: #dcdcdc;
 }
 .sb-anagram {
   display: block;
-  text-transform: capitalize;
+  //text-transform: capitalize;
   font-size: 14px;
   font-weight: 500;
 
@@ -169,8 +169,9 @@ $progress-transition: left $progress-transition-time ease;
 
 .sb-progress {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
-  align-items: center;
+  // align-items: center;
   cursor: pointer;
   padding-right: 12px;
 }

@@ -39,4 +39,22 @@ export class ScoreboardComponent {
   public getScoreName(): string {
     return this.scoreLevels.find(level => level.minScore >= this.score)?.name || 'Fillestar';
   }
+
+  public calculateMarkerPosition(score: number): number {
+    // Find the next level index the score has not yet achieved
+    let nextLevelIndex = this.scoreLevels.findIndex(level => score < level.minScore);
+
+    if (score === 0) {
+      return 0; // Start position if score is 0
+    } else if (nextLevelIndex === 0) {
+      // If score is less than the first minScore and not zero, place it at the first interval
+      return (1 / this.scoreLevels.length) * 100;
+    } else if (nextLevelIndex === -1) {
+      // If score exceeds the highest level's minScore
+      return 100; // End position
+    }
+
+    // Calculate the percentage position of the next level
+    return (nextLevelIndex / this.scoreLevels.length) * 100;
+  }
 }
