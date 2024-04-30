@@ -5,5 +5,8 @@
          [(ngModel)]="currentWord"
          placeholder="Vendos fjalën babik"
          (keyup.enter)="submitWord()" autofocus>
+
+  <app-honeycombs [letters]="letters"></app-honeycombs>
+
   <button (click)="submitWord()">Jepi!</button>
 </div>

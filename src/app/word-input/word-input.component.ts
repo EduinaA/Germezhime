@@ -7,6 +7,7 @@ import {ValidWordsService} from "../valid-words.service";
   styleUrls: ['./word-input.component.scss']
 })
 export class WordInputComponent {
+  letters = this.validWordsService.letters
   public currentWord: string = '';
   public errorMessage: string = '';
 

@@ -6,6 +6,14 @@ $progress-transition-time: 200ms;
 $progress-transition: left $progress-transition-time ease;
 $gray4: #dcdcdc;
 
+:host {
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+  //width: 100%;
+  max-width: 80%;
+}
+
 /* Component specific styles */
 .sb-wordlist-box {
   display: flex;
@@ -124,8 +132,16 @@ $gray4: #dcdcdc;
 }
 
 @include view-device(mobile) {
+  :host {
+    display: flex;
+    flex-direction: column;
+    min-width: 200px;
+    width: 100%;
+    max-width: 80%;
+  }
+
   .sb-wordlist-box {
-    margin: 0 auto; /* Centering in mobile view */
+    margin: 0 20px; /* Centering in mobile view */
   }
 }
 
