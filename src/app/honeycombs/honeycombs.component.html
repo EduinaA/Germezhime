@@ -1,4 +1,6 @@
 <div class="honeycomb-list">
   <app-single-hive
-    [letters]="letters"></app-single-hive>
+    [letters]="letters"
+    (letterClicked)="onLetterReceived($event)">
+  </app-single-hive>
 </div>

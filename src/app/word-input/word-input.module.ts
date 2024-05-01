@@ -6,18 +6,23 @@ import { HttpClientModule } from '@angular/common/http';
 import {ErrorMessageComponent} from "../error-message/error-message.component";
 import {ErrorMessageModule} from "../error-message/error-message.module";
 import {HoneycombsModule} from "../honeycombs/honeycombs.module";
+import {SingleHiveModule} from "../single-hive/single-hive.module";
+import {AppModule} from "../app.module";
+import {MaintainFocusDirective} from "../maintain-focus.directive";
 
 @NgModule({
   declarations: [
-    WordInputComponent  // Declare the WordInputComponent
+    WordInputComponent,
+    MaintainFocusDirective
   ],
-    imports: [
-        CommonModule,  // CommonModule includes basic Angular directives like NgIf and NgFor
-        FormsModule,   // FormsModule is necessary for using ngModel
-        HttpClientModule,
-        ErrorMessageModule,
-        HoneycombsModule
-    ],
+  imports: [
+    CommonModule,  // CommonModule includes basic Angular directives like NgIf and NgFor
+    FormsModule,   // FormsModule is necessary for using ngModel
+    HttpClientModule,
+    ErrorMessageModule,
+    HoneycombsModule,
+    SingleHiveModule
+  ],
   exports: [
     WordInputComponent  // Export the WordInputComponent so it can be used in other modules
   ]

@@ -2,11 +2,18 @@
 <app-error-message [message]="errorMessage"></app-error-message>
 <div class="input-container">
   <input type="text"
+         class="custom-cursor"
          [(ngModel)]="currentWord"
-         placeholder="Vendos fjalën babik"
-         (keyup.enter)="submitWord()" autofocus>
+         placeholder="Shkruaj ose kliko"
+         (keyup.enter)="submitWord()" autofocus
+         appMaintainFocus>
 
-  <app-honeycombs [letters]="letters"></app-honeycombs>
+  <div class="honeycomb-list">
+    <app-single-hive
+      (letterClicked)="onLetterReceived($event)"
+      [letters]="letters">
+    </app-single-hive>
+  </div>
 
   <button (click)="submitWord()">Jepi!</button>
 </div>

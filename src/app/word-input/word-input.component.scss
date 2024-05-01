@@ -1,3 +1,6 @@
+//import variables from 'src/styles/variables.scss';
+@import '../styles/variables.scss';
+
 :host {
   display: block;
   margin: 0 20px;
@@ -14,9 +17,19 @@ input[type="text"] {
   padding: 10px;
   font-size: 16px;
   border: none;
-  border-radius: 4px;
   width: 300px;
   margin-bottom: 20px;
+
+  &.valid-letter {
+    color: #333;
+  }
+  &.center-letter {
+    color: #fdd835;
+  }
+
+  &.invalid-letter {
+    color: #d2d0d0;
+  }
 
   &:focus {
     outline: none;
@@ -24,7 +37,15 @@ input[type="text"] {
   &:focus-visible {
     outline:none;
   }
+}
 
+input.custom-cursor {
+  caret-color: #fdd835;
+  font-size: 32px;
+
+  &::placeholder {
+    color: #a8a8a8;
+  }
 }
 
 button {
@@ -35,4 +56,119 @@ button {
   cursor: pointer;
   font-size: 16px;
   margin-top: 20px;
+}
+
+// addition from input.css
+$caret-gap: 6px;
+$caret-width: 2px;
+
+@keyframes blink {
+  from,
+  to {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes shake {
+  20% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  40% {
+    transform: translate3d(2px, 0, 0);
+  }
+  60% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
+}
+
+.sb-hive-input {
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: .5px;
+  text-rendering: optimizeLegibility; // for better kerning in the input
+  line-height: 1.25;
+  height: 1.25em;
+  width: 100%;
+  font-size: 2em;
+  padding-top: 2px; // because font metric sadness
+  text-align: center;
+  position: relative;
+}
+
+@media (max-width: 370px) {
+  .sb-hive-input {
+    font-size: 1.6em;
+  }
+}
+
+.sb-hive-input-content {
+  height: 100%;
+  display: inline-block;
+  position: relative;
+  transform: translateY(0%);
+  min-width: 1px;
+
+  &.has-error {
+    animation: shake 0.7s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    width: $caret-width;
+    height: 1.25em;
+    background: $spelling-bee-gold;
+    animation: 1000ms blink step-end infinite;
+  }
+
+  &.non-empty::after {
+    right: -($caret-gap - $caret-width);
+  }
+
+  span.sb-hive-input-placeholder {
+    font-weight: 500;
+    color: #959595;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+}
+
+.sb-hive-hidden-input {
+  overflow: hidden;
+  pointer-events: none;
+
+  .sb-hive-input-content {
+    visibility: hidden;
+  }
+}
+
+.sb-game-locked {
+  .sb-hive-input-content::after {
+    display: none;
+  }
+}
+
+.sb-input-bright {
+  color: $spelling-bee-gold;
+}
+
+.sb-input-invalid {
+  color: #dcdcdc;
+}
+
+.honeycomb-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  //width: 280px;
+  position: relative;
 }

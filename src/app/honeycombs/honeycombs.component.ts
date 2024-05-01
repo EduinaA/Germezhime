@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges } from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, Output} from '@angular/core';
 
 @Component({
   selector: 'app-honeycombs',
@@ -7,7 +7,12 @@ import { Component, Input, OnChanges } from '@angular/core';
 })
 export class HoneycombsComponent implements OnChanges {
   @Input() letters: string[] = [];
+  @Output() letterClicked = new EventEmitter<string>();
 
+  public onLetterReceived(letter: string): void {
+    //console.log('Received letter from child:', letter);
+    // Perform further actions as necessary with the received letter
+  }
   ngOnChanges(): void {
   }
 }

@@ -1,7 +1,6 @@
 .hive-cell {
   width: 60px;
   height: 52px;
-  cursor: pointer;
   position: absolute;
 
   > .cell-fill.push-active {
@@ -13,13 +12,20 @@
 .cell-fill {
   fill: #e6e6e6;
   transition: all 100ms;
+  cursor: pointer;
   &.push-active {
     fill: darken(#e6e6e6, 5);
+  }
+  &:hover {
+    fill: darken(#e6e6e6, 8);
   }
 }
 
 .center-honeycomb .cell-fill {
   fill: #fdd835;
+  &:hover {
+    fill: darken(#fdd835, 8);
+  }
 }
 
 .cell-letter {
@@ -29,6 +35,7 @@
   alignment-baseline: middle;
   fill: #333;
   text-transform: uppercase;
+  cursor: pointer;
 }
 
 /* Offset calculations for hexagonal grid formation */

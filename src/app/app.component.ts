@@ -16,7 +16,6 @@ import {HttpClientModule} from "@angular/common/http";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  letters = this.validWordsServiceService.letters
   constructor(private validWordsServiceService: ValidWordsService) {
   }
 
