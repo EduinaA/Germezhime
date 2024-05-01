@@ -1,16 +1,16 @@
 import {Component, OnChanges, OnInit} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HoneycombsModule } from "./honeycombs/honeycombs.module";
 import { WordInputModule } from "./word-input/word-input.module";
 import { ErrorMessageModule } from "./error-message/error-message.module";
 import { ScoreboardModule } from "./scoreboard/scoreboard.module";
 import {ValidWordsService} from "./valid-words.service";
 import {HttpClientModule} from "@angular/common/http";
+import {MenuModule} from "./menu/menu.module";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HoneycombsModule, WordInputModule, ErrorMessageModule, ScoreboardModule, HttpClientModule],
+  imports: [RouterOutlet, WordInputModule, ErrorMessageModule, ScoreboardModule, HttpClientModule, MenuModule],
   providers: [ValidWordsService],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']

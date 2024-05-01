@@ -5,9 +5,7 @@ import { WordInputComponent } from './word-input.component';
 import { HttpClientModule } from '@angular/common/http';
 import {ErrorMessageComponent} from "../error-message/error-message.component";
 import {ErrorMessageModule} from "../error-message/error-message.module";
-import {HoneycombsModule} from "../honeycombs/honeycombs.module";
 import {SingleHiveModule} from "../single-hive/single-hive.module";
-import {AppModule} from "../app.module";
 import {MaintainFocusDirective} from "../maintain-focus.directive";
 
 @NgModule({
@@ -20,7 +18,6 @@ import {MaintainFocusDirective} from "../maintain-focus.directive";
     FormsModule,   // FormsModule is necessary for using ngModel
     HttpClientModule,
     ErrorMessageModule,
-    HoneycombsModule,
     SingleHiveModule
   ],
   exports: [

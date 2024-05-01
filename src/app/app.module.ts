@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
-import {HoneycombsModule} from "./honeycombs/honeycombs.module";
 import {FormsModule} from "@angular/forms";
 import {ValidWordsService} from "./valid-words.service";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
@@ -18,7 +17,6 @@ import {MaintainFocusDirective} from "./maintain-focus.directive";
   imports: [
     BrowserModule,
     FormsModule,
-    HoneycombsModule,
     HttpClientModule,
     RouterOutlet,
     WordInputModule,

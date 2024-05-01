@@ -3,11 +3,10 @@
 body {
   font-family: 'Roboto', sans-serif;
   margin: 0;
-  padding: 0;
   background-color: white;
   color: #5a5a5a;
   font-size: 14px;
-
+  padding-top: 60px!important; /* Adjust based on the actual height of your menu */
 }
 // rests
 ol,

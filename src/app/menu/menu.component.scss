@@ -1,0 +1,42 @@
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  border-bottom: 1px solid #f0f0f0;
+  z-index: 1000;
+  display: flex;  // Added for flexbox layout
+  align-items: center;  // Align items vertically in the center
+  justify-content: space-between;  // Distribute space between logo and menu links
+  padding: 0 20px;  // Padding on sides of the navbar
+
+  .logo img {
+    height: 55px;
+    padding-top: 5px;
+    width: auto;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+
+    li {
+      margin: 0 20px;
+    }
+
+    a {
+      text-decoration: none;
+      color: #333;
+      font-size: 16px;
+      padding: 10px 20px;
+      display: block;
+
+      &:hover {
+        background-color: #F8F8F8;
+      }
+    }
+  }
+}
