@@ -19,6 +19,8 @@ input[type="text"] {
   border: none;
   width: 300px;
   margin-bottom: 20px;
+  text-align: center;
+  text-transform: uppercase;
 
   &.valid-letter {
     color: #333;
@@ -41,10 +43,12 @@ input[type="text"] {
 
 input.custom-cursor {
   caret-color: #fdd835;
-  font-size: 32px;
+  font-size: 30px;
 
   &::placeholder {
     color: #a8a8a8;
+    font-size: 22px;
+    text-transform: none;
   }
 }
 
