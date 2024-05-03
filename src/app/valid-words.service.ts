@@ -20,6 +20,7 @@ export class ValidWordsService {
 
   // A behavior subject to hold the score of the game
   public scoreSubject = new BehaviorSubject<number>(0);
+  public wordsLoaded = new BehaviorSubject(false)
 
   constructor(
     private http: HttpClient,
@@ -61,12 +62,12 @@ export class ValidWordsService {
         const allPangrams = allWords.filter(word => word.length === 7 && new Set(word).size === 7);
         //console.log(allPangrams);
         this.createAllValidWordsSet(wordSet);
+        this.wordsLoaded.next(true);
       });
   }
 
   // Create a set of all valid words from the dictionary.
   private createAllValidWordsSet(wordSet: Set<string>): void {
-    console.log('createAllValidWordsSet')
     for (const word of wordSet) {
       if (!word.includes(this.letters[3])) {
         continue;
@@ -81,8 +82,6 @@ export class ValidWordsService {
   // calculate the score of the allValidWordsSet
   public calculateScore(): number {
     let score = 0;
-    console.log('calculateScore');
-    console.log(this.allValidWordsSet);
     for (const word of this.allValidWordsSet) {
       score += this.score(word);
     }

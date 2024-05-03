@@ -22,41 +22,41 @@ export class ScoreboardComponent implements OnInit {
   public scoreName: string = '';
 
   ngOnInit() {
+    this.validWordsServiceService.wordsLoaded.subscribe(loaded => {
+      if (loaded) {
+        const totalScore = this.validWordsServiceService.calculateScore();
+
+        this.two = Math.floor(totalScore * 0.02);
+        this.five = Math.floor(totalScore * 0.05);
+        this.eight = Math.floor(totalScore * 0.08);
+        this.fifteen = Math.floor(totalScore * 0.15);
+        this.twentyfive = Math.floor(totalScore * 0.25);
+        this.forty = Math.floor(totalScore * 0.40);
+        this.fifty = Math.floor(totalScore * 0.50);
+        this.seventy = Math.floor(totalScore * 0.70);
+
+        this.scoreLevels = [
+          { name: 'Vezë', minScore: 0 },
+          { name: 'Larvë', minScore: this.two },
+          { name: 'Bletë', minScore: this.five },
+          { name: 'Bletë punëtore', minScore: this.eight },
+          { name: 'Bletë e zgjuar', minScore: this.fifteen },
+          { name: 'Bletë mendjendritur', minScore: this.twentyfive },
+          { name: 'Të lumtë thumbi!', minScore: this.forty },
+          { name: 'Bletar', minScore: this.fifty },
+          { name: 'Mbretëreshë!', minScore: this.seventy }
+        ];
+      }
+    });
+
     this.validWordsServiceService.validWordsSubject.subscribe(words => {
-      console.log('valid words subject', words);
       this.validWords = words;
-      const totalScore = this.validWordsServiceService.calculateScore();
-
-      this.two = Math.floor(totalScore * 0.02);
-      this.five = Math.floor(totalScore * 0.05);
-      this.eight = Math.floor(totalScore * 0.08);
-      this.fifteen = Math.floor(totalScore * 0.15);
-      this.twentyfive = Math.floor(totalScore * 0.25);
-      this.forty = Math.floor(totalScore * 0.40);
-      this.fifty = Math.floor(totalScore * 0.50);
-      this.seventy = Math.floor(totalScore * 0.70);
-
-      this.scoreLevels = [
-        { name: 'Vezë', minScore: 0 },
-        { name: 'Larvë', minScore: this.two },
-        { name: 'Bletë', minScore: this.five },
-        { name: 'Bletë punëtore', minScore: this.eight },
-        { name: 'Bletë e zgjuar', minScore: this.fifteen },
-        { name: 'Bletë mendjendritur', minScore: this.twentyfive },
-        { name: 'Të lumtë thumbi!', minScore: this.forty },
-        { name: 'Bletar', minScore: this.fifty },
-        { name: 'Mbretëreshë!', minScore: this.seventy }
-      ];
     });
 
     // subscribe to the scoreSubject
     this.validWordsServiceService.scoreSubject.subscribe(score => {
-      console.log('score', score);
-      console.log('totalScore', this.validWordsServiceService.calculateScore());
       this.score = score;
       this.scoreName = this.getScoreName();
-      console.log('scoreName', this.scoreName);
-      console.log('scoreLevels', this.scoreLevels);
     });
   }
 
