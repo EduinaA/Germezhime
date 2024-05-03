@@ -42,10 +42,12 @@ input[type="text"] {
 }
 
 input.custom-cursor {
+  font-family: 'Roboto', sans-serif;
   caret-color: #fdd835;
-  font-size: 30px;
+  font-size: 28px;
 
   &::placeholder {
+    font-family: 'Roboto', sans-serif;
     color: #a8a8a8;
     font-size: 22px;
     text-transform: none;

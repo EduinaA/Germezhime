@@ -7,8 +7,9 @@
       <div class="sb-progress-bar">
         <div class="sb-progress-line">
           <!-- Each dot represents a score level -->
-          <div *ngFor="let level of scoreLevels" class="sb-progress-dots">
-            <span [ngClass]="{'completed': score >= level.minScore}" class="sb-progress-dot"></span>
+          <div class="sb-progress-dots">
+            <span *ngFor="let level of scoreLevels" class="sb-progress-dots"
+              [ngClass]="{'completed': score >= level.minScore}" class="sb-progress-dot"></span>
           </div>
         </div>
         <!-- Dynamic marker positioning -->
@@ -24,7 +25,7 @@
   <div class="sb-wordlist-heading">
     <div class="sb-wordlist-heading-wrap">
       <div class="sb-wordlist-summary">
-        Keni gjetur {{ validWords.length }} fjalë
+        Keni gjetur <span>{{ validWords.length }}</span> fjalë
       </div>
     </div>
   </div>

@@ -10,7 +10,7 @@ $gray4: #dcdcdc;
   display: flex;
   flex-direction: column;
   min-width: 200px;
-  //width: 100%;
+  width: auto;
   max-width: 80%;
 }
 
@@ -74,14 +74,14 @@ $gray4: #dcdcdc;
   align-content: flex-start;
   height: calc(100%);
   padding: 10px;
-  min-width: 400px;
+  min-width: 450px;
 
   > li {
     margin-right: 15px;
     padding: 4px 0 4px 1px;
     margin-bottom: 7px;
     border-bottom: 1px solid #dcdcdc;
-    width: calc(30% - 20px);
+    width: calc(25% - 20px);
   }
 }
 .sb-anagram {
@@ -168,10 +168,6 @@ $gray4: #dcdcdc;
   overflow-y: auto;
 }
 
-.pz-games-app .sb-content-box {
-  font-family: 'nyt-franklin', sans-serif;
-}
-
 /* Kebob and other UI elements */
 .sb-kebob {
   /* Style for kebob menu, typically the three-dot vertical menu */
@@ -190,12 +186,6 @@ $progress-transition: left $progress-transition-time ease;
   // align-items: center;
   cursor: pointer;
   padding-right: 12px;
-}
-
-@include view-width-min(md) {
-  .sb-progress {
-    padding: 6px 12px 6px 0;
-  }
 }
 
 .sb-progress-bar {
@@ -219,6 +209,7 @@ $progress-transition: left $progress-transition-time ease;
 .sb-progress-bar,
 .sb-progress-rank {
   height: $marker-size;
+  padding-bottom: 10px;
 }
 
 .sb-progress-line {
@@ -295,5 +286,8 @@ $progress-transition: left $progress-transition-time ease;
 @media (max-width: 768px) {
   .sb-wordlist-items-pag {
     min-width: auto;
+    > li {
+      width: calc(40% - 20px);
+    }
   }
 }

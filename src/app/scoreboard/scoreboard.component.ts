@@ -7,16 +7,26 @@ import { ValidWordsService } from '../valid-words.service';
   styleUrls: ['./scoreboard.component.scss']
 })
 export class ScoreboardComponent {
+  public scoreCalculate = this.validWordsServiceService.calculateScore();
+  public two: number = Math.floor(this.scoreCalculate * 0.02);
+  public five: number = Math.floor(this.scoreCalculate * 0.05);
+  public eight: number = Math.floor(this.scoreCalculate * 0.08);
+  public fifteen: number = Math.floor(this.scoreCalculate * 0.15);
+  public twentyfive: number = Math.floor(this.scoreCalculate * 0.25);
+  public forty: number = Math.floor(this.scoreCalculate * 0.40);
+  public fifty: number = Math.floor(this.scoreCalculate * 0.50);
+  public seventy: number = Math.floor(this.scoreCalculate * 0.70);
+
   public scoreLevels: { name: string, minScore: number }[] = [
     { name: 'Vezë', minScore: 0 },
-    { name: 'Larvë', minScore: 5 },
-    { name: 'Bletë', minScore: 13 },
-    { name: 'Bletë punëtore', minScore: 20 },
-    { name: 'Bletë e zgjuar', minScore: 38 },
-    { name: 'Bletë mendjendritur', minScore: 63 },
-    { name: 'Të lumtë thumbi!', minScore: 101 },
-    { name: 'Mbretëreshë', minScore: 127 },
-    { name: 'Bletar', minScore: 177 }
+    { name: 'Larvë', minScore: this.two },
+    { name: 'Bletë', minScore: this.five },
+    { name: 'Bletë punëtore', minScore: this.eight },
+    { name: 'Bletë e zgjuar', minScore: this.fifteen },
+    { name: 'Bletë mendjendritur', minScore: this.twentyfive },
+    { name: 'Të lumtë thumbi!', minScore: this.forty },
+    { name: 'Bletar', minScore: this.fifty },
+    { name: 'Mbretëreshë!', minScore: this.seventy }
   ];
   public validWords: { word: string, isPangram: boolean }[] = [];
   public score: number = 0;
@@ -36,25 +46,26 @@ export class ScoreboardComponent {
       this.scoreName = this.getScoreName();
     });
   }
+
   public getScoreName(): string {
-    return this.scoreLevels.find(level => level.minScore >= this.score)?.name || 'Fillestar';
+    return this.scoreLevels.slice().reverse().find(level => level.minScore <= this.score)?.name || 'Vezë';
   }
 
   public calculateMarkerPosition(score: number): number {
-    // Find the next level index the score has not yet achieved
-    let nextLevelIndex = this.scoreLevels.findIndex(level => score < level.minScore);
-
-    if (score === 0) {
-      return 0; // Start position if score is 0
-    } else if (nextLevelIndex === 0) {
-      // If score is less than the first minScore and not zero, place it at the first interval
-      return (1 / this.scoreLevels.length) * 100;
-    } else if (nextLevelIndex === -1) {
-      // If score exceeds the highest level's minScore
-      return 100; // End position
+    let nextLevelIndex = 0;
+    for (let i = this.scoreLevels.length - 1; i >= 0; i--) {
+      if (score >= this.scoreLevels[i].minScore) {
+        nextLevelIndex = i;
+        break;
+      }
     }
 
+    if (nextLevelIndex === 0) {
+      return 0;
+    }
+    // console.log((1/this.scoreLevels.length) * 100);
+    // console.log((nextLevelIndex / this.scoreLevels.length) * 100);
     // Calculate the percentage position of the next level
-    return (nextLevelIndex / this.scoreLevels.length) * 100;
+    return (nextLevelIndex / (this.scoreLevels.length - 1)) * 100;
   }
 }

@@ -73,8 +73,18 @@ export class ValidWordsService {
 
       if (Array.from(word).every(char => this.letters.includes(char))) {
         this.allValidWordsSet.add(word);
+        this.calculateScore();
       }
     }
+  }
+
+  // calculate the score of the allValidWordsSet
+  public calculateScore(): number {
+    let score = 0;
+    for (const word of this.allValidWordsSet) {
+      score += this.score(word);
+    }
+    return score;
   }
 
   // Check if a valid word is a pangram.
