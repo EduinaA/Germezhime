@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { ValidWordsService } from '../valid-words.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { ValidWordsService } from '../valid-words.service';
   templateUrl: './scoreboard.component.html',
   styleUrls: ['./scoreboard.component.scss']
 })
-export class ScoreboardComponent {
+export class ScoreboardComponent implements OnInit {
   public two: number = 0;
   public five: number = 0;
   public eight: number = 0;
@@ -21,10 +21,7 @@ export class ScoreboardComponent {
   public score: number = 0;
   public scoreName: string = '';
 
-  constructor(
-    private validWordsServiceService: ValidWordsService
-  ) {
-    //subscribe to the validWordsSubject
+  ngOnInit() {
     this.validWordsServiceService.validWordsSubject.subscribe(words => {
       console.log('valid words subject', words);
       this.validWords = words;
@@ -62,6 +59,10 @@ export class ScoreboardComponent {
       console.log('scoreLevels', this.scoreLevels);
     });
   }
+
+  constructor(
+    private validWordsServiceService: ValidWordsService
+  ) {}
 
   public getScoreName(): string {
     return [...this.scoreLevels].reverse().find(level => level.minScore <= this.score)?.name || 'Vezë';
