@@ -73,7 +73,7 @@ export class ValidWordsService {
 
       if (Array.from(word).every(char => this.letters.includes(char))) {
         this.allValidWordsSet.add(word);
-        this.calculateScore();
+        //this.calculateScore();
       }
     }
   }

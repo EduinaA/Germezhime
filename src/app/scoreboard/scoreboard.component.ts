@@ -42,13 +42,16 @@ export class ScoreboardComponent {
 
     // subscribe to the scoreSubject
     this.validWordsServiceService.scoreSubject.subscribe(score => {
+      console.log('score', score);
       this.score = score;
       this.scoreName = this.getScoreName();
+      console.log('scoreName', this.scoreName);
+      console.log('scoreLevels', this.scoreLevels);
     });
   }
 
   public getScoreName(): string {
-    return this.scoreLevels.slice().reverse().find(level => level.minScore <= this.score)?.name || 'Vezë';
+    return [...this.scoreLevels].reverse().find(level => level.minScore <= this.score)?.name || 'Vezë';
   }
 
   public calculateMarkerPosition(score: number): number {
