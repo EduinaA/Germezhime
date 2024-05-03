@@ -66,6 +66,7 @@ export class ValidWordsService {
 
   // Create a set of all valid words from the dictionary.
   private createAllValidWordsSet(wordSet: Set<string>): void {
+    console.log('createAllValidWordsSet')
     for (const word of wordSet) {
       if (!word.includes(this.letters[3])) {
         continue;
@@ -73,7 +74,6 @@ export class ValidWordsService {
 
       if (Array.from(word).every(char => this.letters.includes(char))) {
         this.allValidWordsSet.add(word);
-        //this.calculateScore();
       }
     }
   }
@@ -81,6 +81,8 @@ export class ValidWordsService {
   // calculate the score of the allValidWordsSet
   public calculateScore(): number {
     let score = 0;
+    console.log('calculateScore');
+    console.log(this.allValidWordsSet);
     for (const word of this.allValidWordsSet) {
       score += this.score(word);
     }

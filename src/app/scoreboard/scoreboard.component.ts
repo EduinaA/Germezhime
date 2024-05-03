@@ -7,7 +7,6 @@ import { ValidWordsService } from '../valid-words.service';
   styleUrls: ['./scoreboard.component.scss']
 })
 export class ScoreboardComponent {
-  public scoreCalculate: number = 0;
   public two: number = 0;
   public five: number = 0;
   public eight: number = 0;
@@ -27,17 +26,18 @@ export class ScoreboardComponent {
   ) {
     //subscribe to the validWordsSubject
     this.validWordsServiceService.validWordsSubject.subscribe(words => {
+      console.log('valid words subject', words);
       this.validWords = words;
+      const totalScore = this.validWordsServiceService.calculateScore();
 
-      this.scoreCalculate = this.validWordsServiceService.calculateScore();
-      this.two = Math.floor(this.scoreCalculate * 0.02);
-      this.five = Math.floor(this.scoreCalculate * 0.05);
-      this.eight = Math.floor(this.scoreCalculate * 0.08);
-      this.fifteen = Math.floor(this.scoreCalculate * 0.15);
-      this.twentyfive = Math.floor(this.scoreCalculate * 0.25);
-      this.forty = Math.floor(this.scoreCalculate * 0.40);
-      this.fifty = Math.floor(this.scoreCalculate * 0.50);
-      this.seventy = Math.floor(this.scoreCalculate * 0.70);
+      this.two = Math.floor(totalScore * 0.02);
+      this.five = Math.floor(totalScore * 0.05);
+      this.eight = Math.floor(totalScore * 0.08);
+      this.fifteen = Math.floor(totalScore * 0.15);
+      this.twentyfive = Math.floor(totalScore * 0.25);
+      this.forty = Math.floor(totalScore * 0.40);
+      this.fifty = Math.floor(totalScore * 0.50);
+      this.seventy = Math.floor(totalScore * 0.70);
 
       this.scoreLevels = [
         { name: 'Vezë', minScore: 0 },
