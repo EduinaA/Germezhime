@@ -27,7 +27,7 @@ export class ValidWordsService {
   ) {
     this.loadWordList();
     if (isPlatformBrowser(this.platformId)) {
-      this.validWordsSubject = new BehaviorSubject<{word: string, isPangram: boolean}[]>(this.loadWordsFromLocalStorage());
+      this.validWordsSubject.next(this.loadWordsFromLocalStorage());
       this.validWordsSubject.value.forEach(word => {(
         this.scoreSubject.next(this.scoreSubject.value + this.score(word.word))
       )});
