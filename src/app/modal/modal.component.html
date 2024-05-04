@@ -1,0 +1,27 @@
+<!-- Modal backdrop -->
+<div class="modal-backdrop" *ngIf="show" (click)="closeModal()"></div>
+<!-- Modal content -->
+<div class="modal-content" *ngIf="show">
+  <div class="modal-header">
+    <button class="close-button" (click)="closeModal()">X</button>
+  </div>
+  <h1>Rregullat e lojës Germëzhimë</h1>
+  <h2>Krijoni fjalë duke përdorur shkronjat nga hoja.</h2>
+  <ul>
+    <li>Fjala duhet të ketë <b>të paktën 4 shkronja</b>.</li>
+    <li>Fjala duhet të ketë patjetër <b>shkronjën e mesit</b>.</li>
+    <li>Shkronjat mund të përdoren më shumë se 1 herë.</li>
+    <li>Lista e fjalëve nuk përmban emra të përveçëm.</li>
+    <li>As sharje.</li>
+    <li>Ama përmban zgjedhime dhe lakime të po të njëjtës fjalë.</li>
+  </ul>
+
+  <p>Si llogariten pikët?</p>
+  <ul>
+    <li>Fjalët me 4 shkronja kanë nga <b>1</b> pikë secila.</li>
+    <li>Shkronjat dyshe si <b>"Rr", "Dh", "Nj"</b> etj llogariten si të ndara.</li>
+    <li>Fjalët më të gjata marrin nga 1 pikë për shkronjë.</li>
+    <li>Çdo lojë përfshin të paktën një <b>"Pangramë"</b> e cila përdor të gjitha shkronjat në hoje vetëm 1 herë.</li>
+    <li>Pangramat vlejnë <b>7 pikë ekstra</b>!</li>
+  </ul>
+</div>

@@ -12,7 +12,6 @@ import {MaintainFocusDirective} from "./maintain-focus.directive";
 
 @NgModule({
   declarations: [
-    MaintainFocusDirective
   ],
   imports: [
     BrowserModule,

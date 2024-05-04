@@ -7,10 +7,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent {
-  constructor(public router: Router) {}
+  showModal: boolean = false;
 
-  isActive(url: string): boolean {
-    // Return true if the current route is the same as the passed url
-    return this.router.url === url;
+  public openModal() {
+    this.showModal = true;
+    console.log(this.showModal);
   }
 }

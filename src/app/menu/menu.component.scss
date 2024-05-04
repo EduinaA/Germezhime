@@ -11,6 +11,13 @@
   justify-content: space-between;  // Distribute space between logo and menu links
   padding: 0 20px;  // Padding on sides of the navbar
 
+  .button {
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+
   .title {
     font-family: 'Tinos', serif;
     padding-left: 10px;
@@ -48,7 +55,7 @@
       display: block;
 
       &:hover {
-        background-color: #F8F8F8;
+        background-color: #efefef;
       }
     }
   }
