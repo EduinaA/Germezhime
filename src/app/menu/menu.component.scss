@@ -59,4 +59,16 @@
       }
     }
   }
+
+  @media (max-width: 768px){
+    ul {
+      li {
+        margin: 0;
+      }
+      a {
+        font-size: 14px;
+        padding: 10px;
+      }
+    }
+  }
 }

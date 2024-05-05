@@ -46,6 +46,8 @@ export class RenditjetModalComponent implements OnInit {
           { name: 'Bletar', minScore: this.fifty },
           { name: 'Mbretëreshë!', minScore: this.seventy }
         ];
+
+        this.scoreName = this.getScoreName();
       }
     });
 
