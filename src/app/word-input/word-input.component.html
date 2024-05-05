@@ -1,6 +1,12 @@
 <!-- src/app/word-input/word-input.component.html -->
-<app-error-message [message]="errorMessage"></app-error-message>
 <div class="input-container">
+  <!-- Error message container -->
+  <div *ngIf="lastResult" class="error-message-container">
+    <div class="error-message">
+      <p>{{ lastResult }}</p>
+    </div>
+  </div>
+  <!-- end of error message container -->
   <input type="text"
          class="custom-cursor"
          [(ngModel)]="currentWord"
@@ -14,6 +20,8 @@
       [letters]="letters">
     </app-single-hive>
   </div>
-
-  <button (click)="submitWord()">Jepi!</button>
+  <div class="button-container">
+    <button  class="clear" (click)="clearWord()">Fshij</button>
+    <button (click)="submitWord()">Jepi!</button>
+  </div>
 </div>

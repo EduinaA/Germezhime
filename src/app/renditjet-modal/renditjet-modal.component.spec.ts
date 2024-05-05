@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ErrorMessageComponent } from './error-message.component';
+import { RenditjetModalComponent } from './renditjet-modal.component';
 
-describe('ErrorMessageComponent', () => {
-  let component: ErrorMessageComponent;
-  let fixture: ComponentFixture<ErrorMessageComponent>;
+describe('ModalComponent', () => {
+  let component: RenditjetModalComponent;
+  let fixture: ComponentFixture<RenditjetModalComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ErrorMessageComponent]
+      imports: [RenditjetModalComponent]
     })
     .compileComponents();
-    
-    fixture = TestBed.createComponent(ErrorMessageComponent);
+
+    fixture = TestBed.createComponent(RenditjetModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

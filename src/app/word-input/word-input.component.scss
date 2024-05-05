@@ -6,11 +6,37 @@
   margin: 0 20px;
 }
 
+.error-message-container {
+  position: absolute;
+  top: -25px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.error-message {
+  display: inline-block;
+  position: relative;
+  padding: 8px 14px;
+  border-radius: 3px;
+  bottom: 10px;
+  font-size: 0.875em;
+  background: #fff;
+  border: solid 1px #d4d4d4;
+  min-width: 65px;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  //perspective: 1000;
+}
 .input-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin-bottom: 20px;
+  position: relative;
 }
 
 input[type="text"] {
@@ -63,6 +89,16 @@ button {
   cursor: pointer;
   font-size: 16px;
   margin-top: 20px;
+  &.clear {
+    background-color: #fff;
+    border: 1px solid #d4d4d4;
+    margin-right: 10px;
+  }
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
 }
 
 // addition from input.css
@@ -111,6 +147,13 @@ $caret-width: 2px;
 @media (max-width: 370px) {
   .sb-hive-input {
     font-size: 1.6em;
+  }
+}
+
+@media (max-width: 786px) {
+  :host {
+    display: block;
+    margin: 40px 0;
   }
 }
 

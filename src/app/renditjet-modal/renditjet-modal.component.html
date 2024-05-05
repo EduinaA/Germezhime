@@ -1,0 +1,116 @@
+<!-- Modal backdrop -->
+<div class="modal-backdrop" *ngIf="showRenditjet" (click)="closeRenditjetModal()"></div>
+<!-- Modal content -->
+<div class="modal-content" *ngIf="showRenditjet">
+  <div class="modal-header">
+    <button class="close-button" (click)="closeRenditjetModal()">X</button>
+  </div>
+  <h1>Renditjet</h1>
+  <h2>Renditjet bazohen në një përqindje të pikëve të mundshme për çdo lojë.</h2>
+
+  <table class="sb-modal-ranks__list">
+    <thead>
+      <tr class="sb-modal-ranks__col-headers">
+        <th class="sb-modal-ranks__rank-marker"></th>
+        <th class="sb-modal-ranks__rank-title">Renditja</th>
+        <th class="sb-modal-ranks__spacer"></th>
+        <th class="sb-modal-ranks__rank-points">Pikët Minimale</th>
+      </tr>
+    </thead>
+   <!-- <tbody>
+      <tr class="">
+        <td class="sb-modal-ranks__rank-marker">
+          <div class="square"></div>
+          <div class="line top"></div>
+        </td>
+        <td class="sb-modal-ranks__rank-title">Mbretëreshë!</td>
+        <td class="sb-modal-ranks__spacer hr"></td>
+        <td class="sb-modal-ranks__rank-points">{{ seventy }}</td>
+      </tr>
+      <tr class="">
+        <td class="sb-modal-ranks__rank-marker">
+          <div class="dot"></div>
+          <div class="line"></div>
+        </td>
+        <td class="sb-modal-ranks__rank-title">Bletar</td>
+        <td class="sb-modal-ranks__spacer hr"></td>
+        <td class="sb-modal-ranks__rank-points">{{ fifty }}</td>
+      </tr>
+      <tr class="">
+        <td class="sb-modal-ranks__rank-marker">
+          <div class="dot"></div>
+          <div class="line"></div>
+        </td>
+        <td class="sb-modal-ranks__rank-title">Të lumtë thumbi!</td>
+        <td class="sb-modal-ranks__spacer hr"></td>
+        <td class="sb-modal-ranks__rank-points">{{ forty }}</td>
+      </tr>
+      <tr class="">
+        <td class="sb-modal-ranks__rank-marker">
+          <div class="dot"></div>
+          <div class="line"></div>
+        </td>
+        <td class="sb-modal-ranks__rank-title">Bletë mendjendritur</td>
+        <td class="sb-modal-ranks__spacer hr"></td>
+        <td class="sb-modal-ranks__rank-points">{{ twentyfive }}</td>
+      </tr>
+      <tr class="">
+        <td class="sb-modal-ranks__rank-marker">
+          <div class="dot"></div>
+          <div class="line"></div>
+        </td>
+        <td class="sb-modal-ranks__rank-title">Bletë e zgjuar</td>
+        <td class="sb-modal-ranks__spacer hr"></td>
+        <td class="sb-modal-ranks__rank-points">{{ fifteen }}</td>
+      </tr>
+      <tr class="">
+        <td class="sb-modal-ranks__rank-marker">
+          <div class="dot"></div>
+          <div class="line"></div>
+        </td>
+        <td class="sb-modal-ranks__rank-title">Bletë punëtore</td>
+        <td class="sb-modal-ranks__spacer hr"></td>
+        <td class="sb-modal-ranks__rank-points">{{ eight }}</td>
+      </tr>
+      <tr class="">
+        <td class="sb-modal-ranks__rank-marker">
+          <div class="dot"></div>
+          <div class="line"></div>
+        </td>
+        <td class="sb-modal-ranks__rank-title">Bletë</td>
+        <td class="sb-modal-ranks__spacer hr"></td>
+        <td class="sb-modal-ranks__rank-points">{{ five }}</td>
+      </tr>
+      <tr class="sb-modal-ranks__current">
+        <td class="sb-modal-ranks__rank-marker">
+          <div class="dot achieved"></div>
+          <div class="line achieved"></div>
+          <span class="current-score">{{ score }}</span>
+        </td>
+        <td class="sb-modal-ranks__rank-title">
+          <span class="current-rank">Larvë<div class="rank-icon"></div></span>
+        </td>
+        <td class="sb-modal-ranks__spacer"></td>
+        <td class="sb-modal-ranks__rank-points">{{ two }}</td>
+      </tr>
+      <tr class="sb-modal-ranks__achieved">
+        <td class="sb-modal-ranks__rank-marker">
+          <div class="dot achieved"></div>
+          <div class="line achieved bottom"></div>
+        </td>
+        <td class="sb-modal-ranks__rank-title">Vezë</td>
+        <td class="sb-modal-ranks__spacer hr"></td>
+        <td class="sb-modal-ranks__rank-points">0</td>
+      </tr>
+    </tbody>-->
+    <tr *ngFor="let level of scoreLevels" class="">
+      <td class="sb-modal-ranks__rank-marker">
+        <div class="square"></div>
+        <div class="line top"></div>
+      </td>
+      <td class="sb-modal-ranks__rank-title">{{ scoreName }}</td>
+      <td class="sb-modal-ranks__spacer hr"></td>
+      <td class="sb-modal-ranks__rank-points">{{ level.minScore }}</td>
+    </tr>
+  </table>
+</div>

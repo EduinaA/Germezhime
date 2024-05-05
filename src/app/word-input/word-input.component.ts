@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component} from '@angular/core';
 import {ValidWordsService} from "../valid-words.service";
 
 @Component({
@@ -9,8 +9,7 @@ import {ValidWordsService} from "../valid-words.service";
 export class WordInputComponent {
   letters = this.validWordsService.letters
   public currentWord: string = '';
-  public errorMessage: string = '';
-  receivedLetter: string = '';
+  public lastResult: string = '';
 
   constructor(private validWordsService: ValidWordsService) {
   }
@@ -20,9 +19,17 @@ export class WordInputComponent {
   }
   public submitWord(): void {
     if(this.currentWord) {
-      this.validWordsService.addWord(this.currentWord);
+      const result = this.validWordsService.addWord(this.currentWord);
+      this.lastResult = result.message;
+     setTimeout(() => {
+        this.lastResult = '';
+      }, 1000);
       this.currentWord = '';
     }
+  }
+
+  public clearWord(): void {
+    this.currentWord = '';
   }
 
 }

@@ -1,10 +1,10 @@
 @import 'styles/variables';
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto Thin', sans-serif;
   margin: 0;
   background-color: white;
-  color: #5a5a5a;
+  color: #333;
   font-size: 14px;
   padding-top: 60px!important; /* Adjust based on the actual height of your menu */
 }
@@ -109,29 +109,4 @@ html {
 *:before,
 *:after {
   box-sizing: inherit;
-}
-
-// font family
-.tinos-regular {
-  font-family: "Tinos", serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.tinos-bold {
-  font-family: "Tinos", serif;
-  font-weight: 700;
-  font-style: normal;
-}
-
-.tinos-regular-italic {
-  font-family: "Tinos", serif;
-  font-weight: 400;
-  font-style: italic;
-}
-
-.tinos-bold-italic {
-  font-family: "Tinos", serif;
-  font-weight: 700;
-  font-style: italic;
 }

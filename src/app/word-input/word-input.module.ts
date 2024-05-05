@@ -3,8 +3,6 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms'; // Import FormsModule if you use ngModel
 import { WordInputComponent } from './word-input.component';
 import { HttpClientModule } from '@angular/common/http';
-import {ErrorMessageComponent} from "../error-message/error-message.component";
-import {ErrorMessageModule} from "../error-message/error-message.module";
 import {SingleHiveModule} from "../single-hive/single-hive.module";
 import {MaintainFocusDirective} from "../maintain-focus.directive";
 
@@ -17,7 +15,6 @@ import {MaintainFocusDirective} from "../maintain-focus.directive";
     CommonModule,  // CommonModule includes basic Angular directives like NgIf and NgFor
     FormsModule,   // FormsModule is necessary for using ngModel
     HttpClientModule,
-    ErrorMessageModule,
     SingleHiveModule
   ],
   exports: [

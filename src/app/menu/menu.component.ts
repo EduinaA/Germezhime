@@ -8,9 +8,13 @@ import { Router } from '@angular/router';
 })
 export class MenuComponent {
   showModal: boolean = false;
+  showModal2: boolean = false;
 
   public openModal() {
     this.showModal = true;
-    console.log(this.showModal);
+  }
+
+  public openModal2() {
+    this.showModal2 = true;
   }
 }

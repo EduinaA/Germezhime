@@ -10,13 +10,15 @@ export class ValidWordsService {
   private readonly validWordsStorageKey = 'validWords';
   private readonly currentLettersStorageKey = 'currentLetters';
   // Daily update of letters
-  public readonly letters: string[] = ['e', 'ë', 's', 'r', 'u', 'l', 'v'];
+  public readonly letters: string[] = ['d', 'e', 'b', 'i', 't', 'o', 'r'];
 
   // The set of words that are available from the given letters
   public allValidWordsSet: Set<string> = new Set();
 
   // The list of valid words that are found from the user
   public validWordsSubject = new BehaviorSubject<{word: string, isPangram: boolean}[]>([]);
+
+  public validationSubject = new BehaviorSubject<boolean>(false);
 
   // A behavior subject to hold the score of the game
   public scoreSubject = new BehaviorSubject<number>(0);
@@ -105,7 +107,7 @@ export class ValidWordsService {
     return word.length;
   }
 
-  public addWord(word: string): void {
+/*  public addWord(word: string): void {
     const currentWords = this.validWordsSubject.value;
     word = word.trim().toLowerCase();
     const isValid = this.allValidWordsSet.has(word);
@@ -124,5 +126,32 @@ export class ValidWordsService {
     } else {
       console.log(`Invalid word not added: ${word}`);
     }
+  }*/
+
+ public addWord(word: string): { success: boolean, message: string, wordData?: { word: string, isPangram: boolean } } {
+    const currentWords = this.validWordsSubject.value;
+    word = word.trim().toLowerCase();
+    const isValid = this.allValidWordsSet.has(word);
+
+    if (isValid) {
+      const isPangram = this.isPangram(word);
+      const existingWord = currentWords.find(w => w.word === word);
+
+      if (!existingWord) {
+        const updatedWords = [...currentWords, { word, isPangram }];
+        updatedWords.sort((a, b) => a.word.localeCompare(b.word));
+        this.validWordsSubject.next(updatedWords);
+        this.scoreSubject.next(this.scoreSubject.value + this.score(word));
+        return { success: true, message: `Bravo! +1`, wordData: { word, isPangram } };
+      } else {
+        return { success: false, message: `E ke gjetur njëherë!` };
+      }
+    }  else if (word.length < 4) {
+      return { success: false, message: `Fjala duhet të jetë së paku 4 shkronja!` };
+    } else {
+      return { success: false, message: `Nuk ndodhet në listë!` };
+    }
+
   }
+
 }

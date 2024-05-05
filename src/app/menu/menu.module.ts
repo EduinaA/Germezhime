@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import {MenuComponent} from "./menu.component";
 import {RouterLink} from "@angular/router";
 import {ModalModule} from "../modal/modal.module";
+import {RenditjetModalModule} from "../renditjet-modal/renditjet-modal.module";
 
 @NgModule({
   declarations: [
@@ -11,7 +12,8 @@ import {ModalModule} from "../modal/modal.module";
   imports: [
     CommonModule,
     RouterLink,
-    ModalModule
+    ModalModule,
+    RenditjetModalModule
   ],
   exports: [
     MenuComponent

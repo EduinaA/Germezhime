@@ -6,7 +6,9 @@
     </div>
   </div>
   <ul>
+    <li><a class="button" (click)="openModal2()">Renditjet</a></li>
     <li><a class="button" (click)="openModal()">Si të luajmë</a></li>
   </ul>
 </nav>
 <app-modal [show]="showModal" (close)="showModal = false"></app-modal>
+<app-renditjet-modal [showRenditjet]="showModal2" (closeRenditjet)="showModal2 = false"></app-renditjet-modal>
