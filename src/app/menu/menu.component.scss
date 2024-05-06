@@ -61,13 +61,16 @@
   }
 
   @media (max-width: 768px){
+    .menu {
+      padding: 2px;
+    }
     ul {
       li {
         margin: 0;
       }
       a {
         font-size: 14px;
-        padding: 10px;
+        padding: 2px!important;
       }
     }
   }
