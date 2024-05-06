@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 export class MenuComponent {
   showModal: boolean = false;
   showModal2: boolean = false;
+  showPreviousResults: boolean = false;
 
   public openModal() {
     this.showModal = true;
@@ -16,5 +17,9 @@ export class MenuComponent {
 
   public openModal2() {
     this.showModal2 = true;
+  }
+
+  public openPreviousResults() {
+    this.showPreviousResults = true;
   }
 }
