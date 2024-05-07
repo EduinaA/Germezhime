@@ -12,11 +12,11 @@ export class RenditjetModalComponent implements OnInit {
   public two: number = 0;
   public five: number = 0;
   public eight: number = 0;
-  public fifteen: number = 0;
-  public twentyfive: number = 0;
-  public forty: number = 0;
-  public fifty: number = 0;
-  public seventy: number = 0;
+  public ten: number = 0;
+  public twenty: number = 0;
+  public thirty: number = 0;
+  public fourty: number = 0;
+  public fiftyfive: number = 0;
   public score: number = 0;
   public scoreName: string = '';
   public scoreLevels: { name: string, minScore: number }[] = [];
@@ -29,22 +29,22 @@ export class RenditjetModalComponent implements OnInit {
         this.two = Math.floor(totalScore * 0.02);
         this.five = Math.floor(totalScore * 0.05);
         this.eight = Math.floor(totalScore * 0.08);
-        this.fifteen = Math.floor(totalScore * 0.15);
-        this.twentyfive = Math.floor(totalScore * 0.25);
-        this.forty = Math.floor(totalScore * 0.40);
-        this.fifty = Math.floor(totalScore * 0.50);
-        this.seventy = Math.floor(totalScore * 0.70);
+        this.ten = Math.floor(totalScore * 0.10);
+        this.twenty = Math.floor(totalScore * 0.20);
+        this.thirty = Math.floor(totalScore * 0.30);
+        this.fourty = Math.floor(totalScore * 0.40);
+        this.fiftyfive = Math.floor(totalScore * 0.55);
 
         this.scoreLevels = [
           { name: 'Vezë', minScore: 0 },
           { name: 'Larvë', minScore: this.two },
           { name: 'Bletë', minScore: this.five },
           { name: 'Bletë punëtore', minScore: this.eight },
-          { name: 'Bletë e zgjuar', minScore: this.fifteen },
-          { name: 'Bletë mendjendritur', minScore: this.twentyfive },
-          { name: 'Të lumtë thumbi!', minScore: this.forty },
-          { name: 'Bletar', minScore: this.fifty },
-          { name: 'Mbretëreshë!', minScore: this.seventy }
+          { name: 'Bletë e zgjuar', minScore: this.ten },
+          { name: 'Bletë mendjendritur', minScore: this.twenty },
+          { name: 'Të lumtë thumbi!', minScore: this.thirty },
+          { name: 'Bletar', minScore: this.fourty },
+          { name: 'Mbretëreshë!', minScore: this.fiftyfive }
         ];
 
         this.scoreName = this.getScoreName();
