@@ -25,12 +25,12 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     // Check if we're in the browser environment before accessing localStorage
     if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
-      const isVisit = localStorage.getItem('visit');
-      if (!isVisit) {
+      const isFirstVisit = localStorage.getItem('firstVisit');
+      if (!isFirstVisit) {
         // Show the modal on the first visit
         this.dialog.open(WelcomeDialogComponent);
         // Mark the visit
-        localStorage.setItem('visit', 'true');
+        localStorage.setItem('firstVisit', 'true');
       }
     }
   }
