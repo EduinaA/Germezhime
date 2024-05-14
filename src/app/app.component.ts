@@ -17,7 +17,7 @@ import {WelcomeDialogComponent} from "./welcome-dialog/welcome-dialog.component"
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  private readonly appVersion = '14.05.2024'; // Increment this version whenever you push new changes
+  private readonly appVersion = '15.05.2024'; // Increment this version whenever you push new changes
   private readonly versionKey = 'appVersion';
   private readonly firstVisitKey = 'firstVisit';
 

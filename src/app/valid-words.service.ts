@@ -10,7 +10,7 @@ export class ValidWordsService {
   private readonly validWordsStorageKey = 'validWords';
   private readonly currentLettersStorageKey = 'currentLetters';
   // Daily update of letters
-  public readonly letters: string[] = ['i', 'b', 'h', 'm', 'd', 'n', 'ë'];
+  public readonly letters: string[] = ['d', 'i', 'a', 'r', 'g', 'u', 'h'];
 
   // The set of words that are available from the given letters
   public allValidWordsSet: Set<string> = new Set();
@@ -62,7 +62,7 @@ export class ValidWordsService {
         const allWords = data.split('\n').map(word => word.trim().toLowerCase()).filter(word => word);
         const wordSet = new Set(allWords);
         const allPangrams = allWords.filter(word => word.length === 7 && new Set(word).size === 7);
-        ///console.log(allPangrams);
+        console.log(allPangrams);
         this.createAllValidWordsSet(wordSet);
         this.wordsLoaded.next(true);
       });
