@@ -15,6 +15,7 @@ export class ScoreboardComponent implements OnInit {
   public thirty: number = 0;
   public fourty: number = 0;
   public fiftyfive: number = 0;
+  public totalScore: number = 1000;
 
   public scoreLevels: { name: string, minScore: number }[] = [];
   public validWords: { word: string, isPangram: boolean }[] = [];
@@ -34,6 +35,7 @@ export class ScoreboardComponent implements OnInit {
         this.thirty = Math.floor(totalScore * 0.30);
         this.fourty = Math.floor(totalScore * 0.40);
         this.fiftyfive = Math.floor(totalScore * 0.55);
+        this.totalScore = totalScore;
 
         this.scoreLevels = [
           { name: 'Vezë', minScore: 0 },
@@ -67,6 +69,10 @@ export class ScoreboardComponent implements OnInit {
   ) {}
 
   public getScoreName(): string {
+    if (this.score >= this.totalScore) {
+      return 'Perandor i Bletëve!'
+    }
+
     return [...this.scoreLevels].reverse().find(level => level.minScore <= this.score)?.name || 'Vezë';
   }
 
