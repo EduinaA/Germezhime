@@ -62,7 +62,7 @@ export class ValidWordsService {
         const allWords = data.split('\n').map(word => word.trim().toLowerCase()).filter(word => word);
         const wordSet = new Set(allWords);
         const allPangrams = allWords.filter(word => word.length === 7 && new Set(word).size === 7);
-        console.log(allPangrams);
+        //console.log(allPangrams);
         this.createAllValidWordsSet(wordSet);
         this.wordsLoaded.next(true);
       });
