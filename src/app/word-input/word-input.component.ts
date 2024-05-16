@@ -29,7 +29,9 @@ export class WordInputComponent {
   }
 
   public clearWord(): void {
-    this.currentWord = '';
+    if (this.currentWord.length > 0) {
+      this.currentWord = this.currentWord.slice(0, -1);
+    }
   }
 
 }
