@@ -10,7 +10,7 @@ export class ValidWordsService {
   private readonly validWordsStorageKey = 'validWords';
   private readonly currentLettersStorageKey = 'currentLetters';
   // Daily update of letters
-  public readonly letters: string[] = ['i', 'o', 'r', 'f', 'e', 'p', 't'];
+  public readonly letters: string[] = ['i', 'g', 'n', 'z', 'y', 'e', 'j'];
 
   // The set of words that are available from the given letters
   public allValidWordsSet: Set<string> = new Set();
