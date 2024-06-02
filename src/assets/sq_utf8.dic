@@ -6468,6 +6468,7 @@ arançatë
 arançatën
 arançatës
 arap
+arapi
 arapash
 arapashi
 arapashin
@@ -7367,6 +7368,7 @@ armikun
 armikut
 armikësh
 armim
+armimi
 armiq
 armiqsh
 armiqtë
@@ -7773,8 +7775,6 @@ arrijmë
 arrijnë
 arriju
 arrijë
-arrima
-arrimi
 arrimë
 arrin
 arrina
@@ -8923,6 +8923,7 @@ aspiratorja
 aspiratorë
 aspiratë
 aspirim
+aspirimi
 aspirimet
 aspirimin
 aspirimit
@@ -94702,8 +94703,6 @@ maraj
 maraji
 marajin
 marajit
-marama
-maramë
 marana
 maranash
 maranat
@@ -95042,6 +95041,9 @@ marrëzisë
 marrëzitë
 marrëzive
 mars
+marsi
+marsin
+marsit
 marsatore
 marsatores
 marsatoret
@@ -95834,8 +95836,6 @@ matësve
 matët
 mauna
 maunë
-maur
-maurë
 mauthi
 mauthia
 mauthie
@@ -104700,6 +104700,9 @@ murgëta
 murgëte
 murgëz
 murim
+murimi
+murimin
+murimit
 murishta
 murishtat
 murishte
@@ -118992,6 +118995,7 @@ paarritshmi
 paarritshëm
 paarsimuar
 paarsimuara
+paarsimuari
 paarsyeshme
 paarsyeshëm
 paarsyetuarën
@@ -120563,7 +120567,6 @@ pamfletistësh
 pamfletistët
 pamfletistëve
 pamfletit
-pamira
 pamiradije
 pamirë
 pamish
@@ -121003,6 +121006,7 @@ papijshëm
 papilar
 papilare
 papirus
+papirusi
 papiruse
 papizëm
 papjekur
@@ -122220,7 +122224,6 @@ paranormal
 paranormale
 paranteza
 parantezë
-parapa
 parapafshin
 parapaftë
 parapagesë
@@ -123458,7 +123461,6 @@ partneritetin
 partneritetit
 partnerja
 partnerë
-paru
 paruajtur
 paruka
 parukë
@@ -127732,7 +127734,6 @@ pirrë
 pirrën
 pirrës
 pirte
-piru
 pirua
 piruet
 piruete
@@ -132838,8 +132839,8 @@ primadonë
 primadonën
 primadonës
 primar
+primari
 primare
-primarius
 primarë
 primat
 primatë
@@ -132858,8 +132859,6 @@ primitivizmin
 primitivizmit
 primitivizëm
 primitivë
-primus
-primuse
 primë
 prin
 prina
@@ -146076,7 +146075,6 @@ ramazani
 ramazanin
 ramazanit
 rameçë
-rami
 ramin
 ramit
 rampa
@@ -152372,13 +152370,6 @@ risillnit
 risillte
 risillu
 risilluni
-risim
-risime
-risimesh
-risimet
-risimeve
-risimin
-risimit
 risin
 risinkronizo
 risinkronizohu
@@ -153711,7 +153702,6 @@ rrallësoji
 rrallësoju
 rrallësomë
 rrallëson
-rram
 rrangallë
 rrangulla
 rrangullash
@@ -153724,6 +153714,7 @@ rrangullinave
 rranicë
 rranë
 rrap
+rrapi
 rrapamë
 rrapashyt
 rrape
@@ -153788,6 +153779,7 @@ rraqe
 rraqesh
 rraqet
 rras
+rrasi
 rrasa
 rrasalliste
 rrasallit
@@ -154771,6 +154763,7 @@ rrinit
 rrinte
 rrinë
 rrip
+rripi
 rripa
 rripak
 rripake
@@ -157093,8 +157086,6 @@ ruspën
 ruspës
 rustik
 rustike
-rusu
-rusur
 rusë
 rutenë
 rutil
@@ -159620,14 +159611,10 @@ salvoji
 salvoju
 salvon
 samar
+samari
 samarbërës
 samarbërëse
 samarbërëseve
-samarium
-samariume
-samariumi
-samariumin
-samariumit
 samarje
 samaros
 samarosi
@@ -160023,8 +160010,6 @@ sarkë
 sarkën
 sarkës
 sarma
-sars
-sarsi
 sarëk
 sarëqet
 sasi
@@ -179398,9 +179383,6 @@ surealizmin
 surealizmit
 surealizëm
 surgjatë
-suri
-surin
-surit
 surle
 surlen
 surles
@@ -191020,11 +191002,6 @@ unzës
 unësh
 unët
 unëve
-upri
-upria
-uprie
-uprinë
-uprisë
 uragan
 uragane
 uraganesh
@@ -191291,7 +191268,12 @@ urgusët
 uria
 urie
 urim
+urimi
+urimin
+urimit
 urime
+urimet
+urimeve
 urina
 urinim
 urinime
